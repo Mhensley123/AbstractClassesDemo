@@ -10,10 +10,13 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            /*
-             * Todo follow all comments!! 
-             */
+            var vehicle = new List<vehicle>();
 
+            Car altima = new Car() { HasTrunk = true, Make = "Nissan", Model = "Altima", Year = 2021 };
+            Motorcycle motorcycle = new Motorcycle() { HasSideCart = true, Make = "HD", Model = "Chopper", Year = 1978 };
+
+            vehicle sedan = new Car() { HasTrunk = true, Make = "Dodge", Model = "Blah", Year = 2019 };
+            vehicle sport = new Car() { Make = "Ferari", Model = "Something", Year = 2002 };
             #region Vehicles
 
             /*
@@ -47,6 +50,17 @@ namespace ConsoleUI
             // Call each of the drive methods for one car and one motorcycle
 
             #endregion            
+            vehicle.Add(altima);
+            vehicle.Add(sedan);
+            vehicle.Add(motorcycle);
+            vehicle.Add(sport);
+
+            foreach(var veh in vehicle)
+            {
+                Console.WriteLine($"Make {veh.Make} Model {veh.Model} Year {veh.Year}");
+                veh.DriveAbstract();
+                Console.WriteLine("............................");
+            }
             Console.ReadLine();
         }
     }
